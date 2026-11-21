@@ -8,7 +8,7 @@
 
 > **Training simulation.** The institution, accounts, payment references, email, and event records in this case are fictional. The IP addresses and `.example` domains are reserved for documentation. Do not contact them or treat this exercise as evidence of a real incident.
 
-This report summarizes the supplied case material. The [original four-page report](<COLLECTED  EVIDENCE/01_Report/CYB305-001 Student Preliminary Forensic Report (1).pdf>) is available in the evidence bundle.
+This is the public, privacy-safe version of the preliminary report. The original student-submission PDF contains identifying details and is not included in the public evidence bundle.
 
 ### 1. Integrity checks
 
@@ -52,8 +52,7 @@ UTC authentication and web-access timestamps have been converted to WAT (UTC+01:
 
 ## Evidence bundle
 
-- The public evidence bundle omits two personal-detail screenshots.
-- [Original preliminary report](<COLLECTED  EVIDENCE/01_Report/CYB305-001 Student Preliminary Forensic Report (1).pdf>)
+- The public evidence bundle omits the identifying original report PDF and two screenshots containing personal details.
 - [Source records](SOURCE_EVIDENCE/)
 - [Working copies](WORKING_COPIES/)
 - [SHA-256 source manifest](SHA256_SOURCE_MANIFEST.csv)
