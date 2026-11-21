@@ -59,3 +59,5 @@ UTC authentication and web-access timestamps have been converted to WAT (UTC+01:
 - [SHA-256 source manifest](SHA256_SOURCE_MANIFEST.csv)
 - [Report template](STUDENT_REPORT_TEMPLATE.txt)
 - [Case walkthrough](https://moseschi5348.github.io/EVIDENCE-INTEGRITY---DIGITAL-FORENSICS-LAB-1/)
+
+The case walkthrough is hosted with GitHub Pages. Updates pushed to `main` are published by the [Pages workflow](.github/workflows/pages.yml).
