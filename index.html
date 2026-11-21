@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#111a17">
+    <meta name="description" content="A fictional digital forensics training case study covering evidence integrity, payment portal activity, and a suspicious email.">
+    <title>Case CYB305-001 — Digital Forensics Lab</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to case report</a>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="CYB 305 case home">
+        <span class="brand-mark" aria-hidden="true">F</span>
+        <span>FIELDNOTES <span class="brand-divider">/</span> CYB 305</span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="#findings">Findings</a>
+        <a href="#timeline">Timeline</a>
+        <a href="#evidence">Evidence</a>
+        <a class="nav-cta" href="#report">Read the report <span aria-hidden="true">↗</span></a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top" aria-labelledby="case-title">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> DIGITAL FORENSICS <span class="eyebrow-slash">/</span> LABORATORY 01</p>
+          <h1 id="case-title">Follow the<br><span class="highlight">evidence.</span></h1>
+          <p class="hero-description">A preliminary examination of a tuition portal change, a suspicious message, and the records that connect them.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#findings">Explore the findings <span aria-hidden="true">↓</span></a>
+            <a class="button button-secondary" href="COLLECTED%20%20EVIDENCE/01_Report/CYB305-001%20Student%20Preliminary%20Forensic%20Report%20(1).pdf">Open original report <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+        <aside class="case-stamp" aria-label="Case details">
+          <p class="stamp-label">CASE FILE</p>
+          <p class="stamp-number">CYB305<span>—</span>001</p>
+          <span class="stamp-rule"></span>
+          <dl>
+            <div><dt>Discipline</dt><dd>Digital forensics</dd></div>
+            <div><dt>Time standard</dt><dd>WAT · UTC+01:00</dd></div>
+            <div><dt>Classification</dt><dd><span class="tag">Training simulation</span></dd></div>
+          </dl>
+          <p class="stamp-index">DOSSIER&nbsp; 01 <span>·</span> 09 SOURCE ITEMS</p>
+        </aside>
+        <div class="hero-index" aria-hidden="true">01 <span>/</span> CASE OVERVIEW</div>
+      </section>
+
+      <section class="notice" aria-label="Simulation notice">
+        <span class="notice-icon" aria-hidden="true">i</span>
+        <p><strong>Classroom simulation.</strong> The people, institution, records, payment references, reserved IP addresses, and <code>.example</code> domains are fictional. Do not contact them or treat this exercise as a real incident.</p>
+      </section>
+
+      <section class="section findings-section" id="findings" aria-labelledby="findings-title">
+        <div class="section-heading">
+          <div><p class="eyebrow">01 <span>/</span> WHAT THE RECORDS SHOW</p><h2 id="findings-title">The signal in the noise.</h2></div>
+          <p class="section-intro">A narrow, evidence-led summary. Each observation points back to its source; none independently establishes who was behind an action.</p>
+        </div>
+        <div class="finding-grid">
+          <article class="finding-card">
+            <span class="card-index">OBSERVATION 01</span>
+            <span class="card-icon" aria-hidden="true">↗</span>
+            <h3>A change outside scope</h3>
+            <p>Ticket CHG-217 allows a banner update—not a beneficiary change. At 09:17:28 WAT, the portal audit records a new beneficiary reference.</p>
+            <a class="source-link" href="#evidence">E03 PORT-006 · E04 WEB-007 <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="finding-card">
+            <span class="card-index">OBSERVATION 02</span>
+            <span class="card-icon" aria-hidden="true">⌁</span>
+            <h3>A suspicious message</h3>
+            <p>Email <code>msg-843</code> asks a student to verify payment details. The training mail log records SPF and DMARC failures before delivery.</p>
+            <a class="source-link" href="#evidence">E01 · E08 MAIL-002–003 <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="finding-card">
+            <span class="card-index">OBSERVATION 03</span>
+            <span class="card-icon" aria-hidden="true">≠</span>
+            <h3>A copy that does not match</h3>
+            <p>The E06 working copy differs from its source: it is one byte longer, and its beneficiary value is different. Preserve the source; document the discrepancy.</p>
+            <a class="source-link" href="#evidence">E05 · E06 · SHA-256 manifest <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="finding-card">
+            <span class="card-index">OBSERVATION 04</span>
+            <span class="card-icon" aria-hidden="true">···</span>
+            <h3>A gap in custody</h3>
+            <p>The 10:19 WAT transfer to the Forensic Desk has no receiving acknowledgement. The later secure-store transfer does.</p>
+            <a class="source-link" href="#evidence">E09 CUST-002–003 <span aria-hidden="true">↗</span></a>
+          </article>
+        </div>
+      </section>
+
+      <section class="timeline-section" id="timeline" aria-labelledby="timeline-title">
+        <div class="section timeline-inner">
+          <div class="section-heading timeline-heading">
+            <div><p class="eyebrow">02 <span>/</span> RECONSTRUCTED SEQUENCE</p><h2 id="timeline-title">One hour. One trail.</h2></div>
+            <p class="section-intro">UTC records converted to West Africa Time (UTC+01:00). The sequence is based only on the supplied exports.</p>
+          </div>
+          <ol class="timeline">
+            <li><time datetime="2026-10-12T09:10:03+01:00">09:10<span>:03</span></time><span class="timeline-marker" aria-hidden="true"></span><div><h3>Approved banner update</h3><p>Portal banner changes within the CHG-217 maintenance window.</p><span class="event-ref">E03 PORT-003 · E04 WEB-003</span></div></li>
+            <li><time datetime="2026-10-12T09:14:03+01:00">09:14<span>:03</span></time><span class="timeline-marker" aria-hidden="true"></span><div><h3>Login succeeds</h3><p><code>bursary.ops</code> signs in from a documentation-range address; session <code>sess-b927</code> begins.</p><span class="event-ref">E02 AUTH-004–006</span></div></li>
+            <li class="timeline-alert"><time datetime="2026-10-12T09:17:28+01:00">09:17<span>:28</span></time><span class="timeline-marker" aria-hidden="true"></span><div><h3>Beneficiary reference updated</h3><p>Reference changes to <code>PAYEE-REF-ALT-909</code>—outside the approved ticket scope.</p><span class="event-ref">E03 PORT-006 · E04 WEB-007</span></div></li>
+            <li><time datetime="2026-10-12T09:24:12+01:00">09:24<span>:12</span></time><span class="timeline-marker" aria-hidden="true"></span><div><h3>Message accepted, then delivered</h3><p><code>msg-843</code> passes through the training mail gateway despite recorded SPF/DMARC failures.</p><span class="event-ref">E01 · E08 MAIL-002–003</span></div></li>
+            <li><time datetime="2026-10-12T09:37:05+01:00">09:37<span>:05</span></time><span class="timeline-marker" aria-hidden="true"></span><div><h3>Message reported</h3><p>The recipient reports <code>msg-843</code> as suspicious.</p><span class="event-ref">E08 MAIL-006</span></div></li>
+            <li><time datetime="2026-10-12T10:19:00+01:00">10:19<span>:00</span></time><span class="timeline-marker" aria-hidden="true"></span><div><h3>Custody acknowledgement missing</h3><p>Transfer to the Forensic Desk is recorded without a receiving acknowledgement.</p><span class="event-ref">E09 CUST-002</span></div></li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="section limits-section" aria-labelledby="limits-title">
+        <div class="limits-mark" aria-hidden="true">!</div>
+        <div><p class="eyebrow">03 <span>/</span> INTERPRET WITH CARE</p><h2 id="limits-title">A log is a lead,<br>not a verdict.</h2></div>
+        <div class="limits-copy">
+          <p>The records show events attributed to accounts and sessions; they do not prove who controlled them, why the changes occurred, that money moved, or that the simulated email was authentic. MFA is recorded as <code>NOT_CAPTURED</code>. Log completeness, clock accuracy, and the identity behind each action remain unverified.</p>
+          <p>Preserve and hash the source exports and configuration snapshots. Obtain the original identity, portal, proxy, mail, and change-management records before drawing conclusions. If handling real records, follow applicable Nigerian evidence and data-protection requirements.</p>
+        </div>
+      </section>
+
+      <section class="evidence-section" id="evidence" aria-labelledby="evidence-title">
+        <div class="section evidence-inner">
+          <div class="section-heading">
+            <div><p class="eyebrow">04 <span>/</span> PRESERVE THE RECORD</p><h2 id="evidence-title">Inside the case file.</h2></div>
+            <p class="section-intro">Nine simulated source records, working copies, and the reference hashes used in this exercise.</p>
+          </div>
+          <div class="evidence-layout">
+            <div class="evidence-list">
+              <a href="evidence.html#source" class="evidence-row"><span class="file-type">DIR</span><span><strong>Source evidence</strong><small>Original simulated exports · E01–E09</small></span><span class="row-arrow" aria-hidden="true">↗</span></a>
+              <a href="evidence.html#copies" class="evidence-row"><span class="file-type">DIR</span><span><strong>Working copies</strong><small>Examination copies; verify before relying on them</small></span><span class="row-arrow" aria-hidden="true">↗</span></a>
+              <a href="SHA256_SOURCE_MANIFEST.csv" class="evidence-row"><span class="file-type">CSV</span><span><strong>SHA-256 source manifest</strong><small>Reference hashes for the supplied source files</small></span><span class="row-arrow" aria-hidden="true">↗</span></a>
+              <a href="COLLECTED%20%20EVIDENCE/01_Report/CYB305-001%20Student%20Preliminary%20Forensic%20Report%20(1).pdf" class="evidence-row"><span class="file-type">PDF</span><span><strong>Original preliminary report</strong><small>Four-page report · PDF</small></span><span class="row-arrow" aria-hidden="true">↗</span></a>
+              <a href="STUDENT_REPORT_TEMPLATE.txt" class="evidence-row"><span class="file-type">TXT</span><span><strong>Student report template</strong><small>Prompts for an independent examination</small></span><span class="row-arrow" aria-hidden="true">↗</span></a>
+            </div>
+            <aside class="integrity-card">
+              <span class="integrity-emblem" aria-hidden="true">✓</span>
+              <p class="eyebrow">INTEGRITY NOTE</p>
+              <h3>Hash the bytes.<br>Record the handling.</h3>
+              <p>Compare working-copy SHA-256 hashes against the provided source manifest. A match confirms byte-level agreement with that reference—not origin, authorship, or legal admissibility.</p>
+              <a href="SHA256_SOURCE_MANIFEST.csv">View the manifest <span aria-hidden="true">↗</span></a>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section class="report-section" id="report" aria-labelledby="report-title">
+        <div class="section report-inner">
+          <div class="section-heading report-heading">
+            <div><p class="eyebrow">05 <span>/</span> THE ORIGINAL SUBMISSION</p><h2 id="report-title">Read the full report.</h2></div>
+            <a class="button button-dark" href="COLLECTED%20%20EVIDENCE/01_Report/CYB305-001%20Student%20Preliminary%20Forensic%20Report%20(1).pdf" target="_blank" rel="noopener">Open PDF <span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="report-frame">
+            <iframe title="Original CYB305-001 student preliminary forensic report" src="COLLECTED%20%20EVIDENCE/01_Report/CYB305-001%20Student%20Preliminary%20Forensic%20Report%20(1).pdf#view=FitH">
+              <p>Your browser does not support embedded PDFs. <a href="COLLECTED%20%20EVIDENCE/01_Report/CYB305-001%20Student%20Preliminary%20Forensic%20Report%20(1).pdf">Open the report PDF</a>.</p>
+            </iframe>
+          </div>
+          <p class="report-caption">Original student report · CYB305-001 · four pages</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="brand footer-brand" href="#top"><span class="brand-mark" aria-hidden="true">F</span><span>FIELDNOTES <span class="brand-divider">/</span> CYB 305</span></a>
+      <p>For learning and examination only.<br>All case data is fictional.</p>
+      <a class="back-to-top" href="#top">BACK TO TOP <span aria-hidden="true">↑</span></a>
+    </footer>
+  </body>
+</html>
